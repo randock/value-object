@@ -1,0 +1,24 @@
+{
+  "name": "randock/value-object",
+  "description": "Randock Value Objects",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Randock\\ValueObject\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "7.1"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "giggsey/libphonenumber-for-php": "^8.7",
+    "ramsey/uuid": "^3.7",
+    "randock/model" :"dev-develop"
+  }
+}
