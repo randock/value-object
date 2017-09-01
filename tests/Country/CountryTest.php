@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Randock\CommonBundle\ValueObject\Country;
+namespace Tests\Randock\ValueObject\Country;
 
 use Randock\ValueObject\Country\Country;
 use Randock\ValueObject\Country\Exception\CountryWrongCodeException;
@@ -16,6 +16,7 @@ class CountryTest extends \PHPUnit_Framework_TestCase
     {
         $country = new Country('ES');
 
+        self::assertEquals('ES', $country->getIsoCode());
         self::assertEquals('ES', $country->getIso2Code());
         self::assertEquals('ESP', $country->getIso3Code());
         self::assertEquals('España', $country->getName('ES'));

@@ -308,6 +308,14 @@ abstract class AbstractCountry
     /**
      * @return string
      */
+    public function getIsoCode(): string
+    {
+        return $this->isoCode;
+    }
+
+    /**
+     * @return string
+     */
     public function getIso3Code(): string
     {
         return self::countries[$this->isoCode];

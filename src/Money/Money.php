@@ -56,7 +56,7 @@ class Money
      */
     public function getAmount(): float
     {
-        return $this->amount;
+        return is_float($this->amount) ? $this->amount : (float) $this->amount;
     }
 
     /**

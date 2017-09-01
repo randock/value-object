@@ -41,6 +41,14 @@ class Currency
     /**
      * @return string
      */
+    public function getCurrencyCode(): string
+    {
+        return $this->currencyCode;
+    }
+
+    /**
+     * @return string
+     */
     public function getCode(): string
     {
         return $this->currencyCode;

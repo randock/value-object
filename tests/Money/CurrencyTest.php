@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Randock\CommonBundle\ValueObject\Money;
+namespace Tests\Randock\ValueObject\Money;
 
 use Randock\ValueObject\Money\Currency;
 use Randock\ValueObject\Money\Exception\CurrencyWrongCodeException;
@@ -34,6 +34,7 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
     {
         $currency = new Currency(self::CURRENCY_EUR);
 
+        self::assertEquals(self::CURRENCY_EUR, $currency->getCurrencyCode());
         self::assertEquals(self::CURRENCY_EUR, $currency->getCode());
     }
 

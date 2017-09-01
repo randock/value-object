@@ -8,6 +8,11 @@
       "Randock\\ValueObject\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Randock\\ValueObject\\": "tests/"
+    }
+  },
   "config": {
     "sort-packages": true,
     "platform": {

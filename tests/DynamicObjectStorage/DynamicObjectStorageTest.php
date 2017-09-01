@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Randock\CommonBundle\ValueObject;
+namespace Tests\Randock\ValueObject;
 
 use Randock\ValueObject\DynamicObjectStorage;
 

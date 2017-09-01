@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Randock\CommonBundle\ValueObject\Money;
+namespace Tests\Randock\ValueObject\Money;
 
 use libphonenumber\PhoneNumber;
 use Randock\ValueObject\Phone\Phone;
