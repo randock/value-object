@@ -14,7 +14,7 @@ class DynamicObjectStorage implements PatchableInterface
     /**
      * @var \stdClass
      */
-    private $data;
+    protected $data;
 
     /**
      * DynamicObjectStorage constructor.
