@@ -80,9 +80,9 @@ class DynamicObjectStorage implements PatchableInterface
     public function patch(\stdClass $data)
     {
         foreach ($data as $property => $fieldValue) {
-            if ($fieldValue instanceof \stdClass) {
+            $getter = sprintf('get%s', ucfirst($property));
+            if ($fieldValue instanceof \stdClass && $this->$getter() instanceof \stdClass) {
                 foreach ($fieldValue as $key => $value) {
-                    $getter = sprintf('get%s', ucfirst($property));
                     if (null !== $this->$getter()) {
                         if (null !== $this->$getter()->$key) {
                             $this->$getter()->$key = $value;
