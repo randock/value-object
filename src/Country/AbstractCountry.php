@@ -330,12 +330,22 @@ abstract class AbstractCountry
      */
     public function setIsoCode(string $isoCode): AbstractCountry
     {
-        if (!array_key_exists($isoCode, self::countries)) {
+        if (false === self::isValid($isoCode)) {
             throw new CountryWrongCodeException();
         }
 
         $this->isoCode = $isoCode;
 
         return $this;
+    }
+
+    /**
+     * @param string $isoCode
+     *
+     * @return bool
+     */
+    public static function isValid(string $isoCode) : bool
+    {
+        return array_key_exists($isoCode, self::countries);
     }
 }
