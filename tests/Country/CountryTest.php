@@ -27,4 +27,10 @@ class CountryTest extends \PHPUnit_Framework_TestCase
         $this->expectException(CountryWrongCodeException::class);
         $country = new Country('ÑÑ');
     }
+
+    public function testIsValid()
+    {
+        self::assertEquals(false, Country::isValid('ÑÑ'));
+        self::assertEquals(true, Country::isValid('ES'));
+    }
 }
