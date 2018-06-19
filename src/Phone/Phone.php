@@ -75,8 +75,17 @@ class Phone
         }
 
         try {
+
+            // check if this is only the country code or if we need to parse
+            if (null !== $this->locale && false !== stripos($this->locale, '_')) {
+                $locale = \Locale::parseLocale($this->locale);
+                $locale = $locale['region'];
+            } else {
+                $locale = $this->locale;
+            }
+
             $phoneNumberUtil = PhoneNumberUtil::getInstance();
-            $this->parsedPhoneNumber = $phoneNumberUtil->parse($phone, $this->locale);
+            $this->parsedPhoneNumber = $phoneNumberUtil->parse($phone, $locale);
             $this->phone = $phoneNumberUtil->format($this->parsedPhoneNumber, PhoneNumberFormat::E164);
         } catch (\Exception $e) {
             throw new InvalidPhoneException();

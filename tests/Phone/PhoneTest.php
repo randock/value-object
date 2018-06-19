@@ -18,6 +18,7 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
     public const PHONE_NL_NATIONAL_PLUS = '+32612345678';
     public const PHONE_NL_E164 = '+31612345678';
     public const LOCALE = 'NL';
+    public const FULL_LOCALE = 'nl_NL';
 
     /**
      * @group unit
@@ -30,6 +31,11 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
         self::assertSame(self::PHONE_NL_E164, $phone->getPhone());
         $phone->setPhone(self::PHONE_NL_NATIONAL_PLUS);
         self::assertSame(self::PHONE_NL_NATIONAL_PLUS, $phone->getPhone());
+    }
+
+    public function testFullLocale()
+    {
+        $phone = new Phone(self::PHONE, self::FULL_LOCALE);
     }
 
     /**

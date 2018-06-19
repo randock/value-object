@@ -276,7 +276,22 @@ abstract class AbstractCountry
      */
     public function __construct(string $isoCode)
     {
-        $this->setIsoCode($isoCode);
+        if (2 === strlen($isoCode)) {
+            $this->setIsoCode($isoCode);
+        } elseif(3 === strlen($isoCode)) {
+
+            $flipped = array_flip(self::countries);
+            if (!isset($flipped[$isoCode])) {
+                throw new CountryWrongCodeException();
+            }
+
+            $this->setIsoCode($flipped[$isoCode]);
+
+        } else {
+            throw new CountryWrongCodeException();
+        }
+
+
     }
 
     /**
