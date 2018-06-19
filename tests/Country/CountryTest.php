@@ -28,6 +28,16 @@ class CountryTest extends \PHPUnit_Framework_TestCase
         $country = new Country('ÑÑ');
     }
 
+    public function testConstructIso2()
+    {
+        self::assertEquals('ESP',  (new Country('ES'))->getIso3Code());
+    }
+
+    public function testConstructIso3()
+    {
+        self::assertEquals('ES',  (new Country('ESP'))->getIso2Code());
+    }
+
     public function testIsValid()
     {
         self::assertEquals(false, Country::isValid('ÑÑ'));
