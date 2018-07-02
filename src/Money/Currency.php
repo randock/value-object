@@ -22,6 +22,7 @@ class Currency
      * Currency constructor.
      *
      * @param string $code
+     * @throws CurrencyWrongCodeException
      */
     public function __construct(string $code = self::DEFAULT_CURRENCY)
     {

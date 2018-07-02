@@ -26,7 +26,7 @@ class ExchangeRate
      *
      * @param Currency $source
      * @param Currency $target
-     * @param float    $rate
+     * @param float $rate
      */
     public function __construct(
         Currency $source,
@@ -54,10 +54,12 @@ class ExchangeRate
         }
 
         if ($this->getTarget()->equals($currency)) {
-            return new Money($price->getAmount() * $this->getRate(), $currency);
+            $amount = (float) $price->getAmount() * $this->getRate();
+            return new Money((string) $amount, $currency);
         }
 
-        return new Money($price->getAmount() * (1 / $this->getRate()), $currency);
+        $amount = (float) $price->getAmount() * (1 / $this->getRate());
+        return new Money((string) $amount, $currency);
     }
 
     /**

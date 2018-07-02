@@ -12,7 +12,7 @@ use Randock\ValueObject\Money\Exception\CurrenciesNotEqualForSumException;
 class Money
 {
     /**
-     * @var float
+     * @var string
      */
     private $amount;
 
@@ -24,10 +24,10 @@ class Money
     /**
      * Money constructor.
      *
-     * @param float    $amount
+     * @param string $amount
      * @param Currency $currency
      */
-    public function __construct(float $amount, Currency $currency)
+    public function __construct(string $amount, Currency $currency)
     {
         $this->amount = $amount;
         $this->currency = $currency;
@@ -45,18 +45,16 @@ class Money
         if (!$this->currency->equals($money->getCurrency())) {
             throw new CurrenciesNotEqualForSumException();
         }
-
-        $value = $this->amount + $money->getAmount();
-
-        return new self($value, $this->currency);
+        $value = (float) $this->amount + (float) $money->getAmount();
+        return new self((string) $value, $this->currency);
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getAmount(): float
+    public function getAmount(): string
     {
-        return is_float($this->amount) ? $this->amount : (float) $this->amount;
+        return $this->amount;
     }
 
     /**
