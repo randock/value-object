@@ -22,7 +22,6 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": "7.1",
     "giggsey/libphonenumber-for-php": "^8.7",
     "ramsey/uuid": "^3.7",
     "randock/model" :"dev-develop"
