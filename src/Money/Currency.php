@@ -19,13 +19,19 @@ class Currency
     private $currencyCode;
 
     /**
+     * @var string|null
+     */
+    private $locale;
+
+    /**
      * Currency constructor.
      *
      * @param string $code
      */
-    public function __construct(string $code = self::DEFAULT_CURRENCY)
+    public function __construct(string $code = self::DEFAULT_CURRENCY, string $locale = null)
     {
         $this->setCode($code);
+        $this->locale = $locale;
     }
 
     /**
@@ -35,7 +41,7 @@ class Currency
      */
     public function equals(Currency $currency): bool
     {
-        return $currency->getCode() === $this->currencyCode;
+        return $currency->getCode() === $this->getCurrencyCode();
     }
 
     /**
@@ -66,5 +72,13 @@ class Currency
         }
 
         $this->currencyCode = $code;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getLocale(): ?string
+    {
+        return $this->locale;
     }
 }
