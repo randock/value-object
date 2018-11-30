@@ -54,9 +54,14 @@ class Phone
 
     /**
      * @return PhoneNumber
+     * @throws EmptyPhoneException
+     * @throws InvalidPhoneException
      */
     public function getParsedPhone(): PhoneNumber
     {
+        if (null === $this->parsedPhoneNumber && null !== $this->phone) {
+            $this->setPhone($this->phone);
+        }
         return $this->parsedPhoneNumber;
     }
 
