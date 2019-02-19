@@ -262,6 +262,13 @@ abstract class AbstractCountry
         'UA' => 'UKR',
         'QA' => 'QAT',
         'MZ' => 'MOZ',
+        'AC' => 'ASC',
+        'IC' => 'ESP',
+        'EA' => 'ESP',
+        'DG' => 'DGA',
+        'EZ' => 'EUE',
+        'TA' => 'TAA',
+        'UN' => 'UNN',
     ];
 
     /**
