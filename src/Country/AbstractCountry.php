@@ -269,6 +269,8 @@ abstract class AbstractCountry
         'EZ' => 'EUE',
         'TA' => 'TAA',
         'UN' => 'UNN',
+        'XA' => 'ESP',
+        'XB' => 'CCK',
     ];
 
     /**
