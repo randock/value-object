@@ -38,15 +38,17 @@ class DynamicObjectStorage implements PatchableInterface
             $key = lcfirst(substr($name, 3));
             $data = $this->data->$key ?? null;
 
+
+            // if it's an array, we see if we can cast it to an object(assoc keys)
             if (is_array($data)) {
-                $data = new self(
-                    json_decode(
-                        json_encode(
-                            $data
-                        )
+                $data = json_decode(
+                    json_encode(
+                        $data
                     )
                 );
-            } else if (is_object($data)) {
+            }
+
+            if (is_object($data)) {
                 $data = new self($data);
             }
 
@@ -66,15 +68,16 @@ class DynamicObjectStorage implements PatchableInterface
     {
         $data = $this->data->$name ?? null;
 
+        // if it's an array, we see if we can cast it to an object(assoc keys)
         if (is_array($data)) {
-            $data = new self(
-                json_decode(
-                    json_encode(
-                        $data
-                    )
+            $data = json_decode(
+                json_encode(
+                    $data
                 )
             );
-        } else if (is_object($data)) {
+        }
+
+        if (is_object($data)) {
             $data = new self($data);
         }
 
