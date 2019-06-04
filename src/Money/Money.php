@@ -66,4 +66,26 @@ class Money
     {
         return $this->currency;
     }
+
+    /**
+     * @param float $percent
+     *
+     * @return Money
+     */
+    public function percent(float $percent): self
+    {
+        $amount = ($this->amount * $percent) / 100;
+
+        return new self($amount, $this->currency);
+    }
+
+    /**
+     * @param float $percent
+     *
+     * @return Money
+     */
+    public function addPercent(float $percent): self
+    {
+        return $this->add($this->percent($percent));
+    }
 }
