@@ -40,7 +40,7 @@ class Money
      *
      * @return Money
      */
-    public function add(Money $money): Money
+    public function add(Money $money): self
     {
         if (!$this->currency->equals($money->getCurrency())) {
             throw new CurrenciesNotEqualForSumException();
@@ -49,6 +49,18 @@ class Money
         $value = $this->amount + $money->getAmount();
 
         return new self($value, $this->currency);
+    }
+
+    /**
+     * @param Money $money
+     *
+     * @throws CurrenciesNotEqualForSumException
+     *
+     * @return Money
+     */
+    public function subtract(Money $money): self
+    {
+        return $this->add(new self(-($money->getAmount()), $money->getCurrency()));
     }
 
     /**
