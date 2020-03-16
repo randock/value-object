@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Randock\ValueObject;
 
-use Randock\Model\Definition\PatchableInterface;
+use Randock\ValueObject\Definition\PatchableInterface;
 
 /**
  * Class DynamicObjectStorage.
